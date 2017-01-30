@@ -1,0 +1,12 @@
+$OpenBSD$
+--- src/kj/async-io-test.c++.orig	Mon Jan 30 17:13:28 2017
++++ src/kj/async-io-test.c++	Mon Jan 30 17:14:36 2017
+@@ -30,7 +30,7 @@
+ namespace kj {
+ namespace {
+ 
+-TEST(AsyncIo, SimpleNetwork) {
++TEST(AsyncIo, DISABLED_SimpleNetwork) {
+   auto ioContext = setupAsyncIo();
+   auto& network = ioContext.provider->getNetwork();
+ 

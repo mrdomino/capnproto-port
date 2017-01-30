@@ -1,0 +1,13 @@
+$OpenBSD$
+--- src/kj/async-io.c++.orig	Mon Jan 30 15:14:29 2017
++++ src/kj/async-io.c++	Mon Jan 30 15:14:43 2017
+@@ -759,7 +759,9 @@ class FdConnectionReceiver final: public ConnectionRec
+ 
+         case EINTR:
+         case ENETDOWN:
++#ifndef __OpenBSD__
+         case EPROTO:
++#endif
+         case EHOSTDOWN:
+         case EHOSTUNREACH:
+         case ENETUNREACH:

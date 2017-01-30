@@ -1,0 +1,60 @@
+$OpenBSD$
+--- Makefile.in.orig	Mon Jul 20 02:55:00 2015
++++ Makefile.in	Mon Jan 30 17:42:58 2017
+@@ -988,9 +988,9 @@ includecapnp_HEADERS = \
+ 
+ # Don't include security release in soname -- we want to replace old binaries
+ # in this case.
+-SO_VERSION = $(shell echo $(VERSION) | sed -re 's/^([0-9]+[.][0-9]+[.][0-9]+)([.][0-9]+)?(-.*)?$$/\1\3/g')
++#SO_VERSION = $(shell echo $(VERSION) | sed -re 's/^([0-9]+[.][0-9]+[.][0-9]+)([.][0-9]+)?(-.*)?$$/\1\3/g')
+ libkj_la_LIBADD = $(PTHREAD_LIBS)
+-libkj_la_LDFLAGS = -release $(SO_VERSION) -no-undefined
++libkj_la_LDFLAGS = -version-info $(SO_VERSION) -no-undefined
+ libkj_la_SOURCES = \
+   src/kj/common.c++                                            \
+   src/kj/units.c++                                             \
+@@ -1009,7 +1009,7 @@ libkj_la_SOURCES = \
+   src/kj/parse/char.c++
+ 
+ @LITE_MODE_FALSE@libkj_async_la_LIBADD = libkj.la $(PTHREAD_LIBS)
+-@LITE_MODE_FALSE@libkj_async_la_LDFLAGS = -release $(SO_VERSION) -no-undefined
++@LITE_MODE_FALSE@libkj_async_la_LDFLAGS = -version-info $(SO_VERSION) -no-undefined
+ @LITE_MODE_FALSE@libkj_async_la_SOURCES = \
+ @LITE_MODE_FALSE@  src/kj/async.c++                                             \
+ @LITE_MODE_FALSE@  src/kj/async-unix.c++                                        \
+@@ -1023,7 +1023,7 @@ libkj_la_SOURCES = \
+ @LITE_MODE_FALSE@  src/capnp/stringify.c++
+ 
+ libcapnp_la_LIBADD = libkj.la $(PTHREAD_LIBS)
+-libcapnp_la_LDFLAGS = -release $(SO_VERSION) -no-undefined
++libcapnp_la_LDFLAGS = -version-info $(SO_VERSION) -no-undefined
+ libcapnp_la_SOURCES = \
+   src/capnp/c++.capnp.c++                                      \
+   src/capnp/blob.c++                                           \
+@@ -1039,7 +1039,7 @@ libcapnp_la_SOURCES = \
+   $(heavy_sources)
+ 
+ @LITE_MODE_FALSE@libcapnp_rpc_la_LIBADD = libcapnp.la libkj-async.la libkj.la $(PTHREAD_LIBS)
+-@LITE_MODE_FALSE@libcapnp_rpc_la_LDFLAGS = -release $(SO_VERSION) -no-undefined
++@LITE_MODE_FALSE@libcapnp_rpc_la_LDFLAGS = -version-info $(SO_VERSION) -no-undefined
+ @LITE_MODE_FALSE@libcapnp_rpc_la_SOURCES = \
+ @LITE_MODE_FALSE@  src/capnp/serialize-async.c++                                \
+ @LITE_MODE_FALSE@  src/capnp/capability.c++                                     \
+@@ -1052,7 +1052,7 @@ libcapnp_la_SOURCES = \
+ @LITE_MODE_FALSE@  src/capnp/ez-rpc.c++
+ 
+ @LITE_MODE_FALSE@libcapnpc_la_LIBADD = libcapnp.la libkj.la $(PTHREAD_LIBS)
+-@LITE_MODE_FALSE@libcapnpc_la_LDFLAGS = -release $(SO_VERSION) -no-undefined
++@LITE_MODE_FALSE@libcapnpc_la_LDFLAGS = -version-info $(SO_VERSION) -no-undefined
+ @LITE_MODE_FALSE@libcapnpc_la_SOURCES = \
+ @LITE_MODE_FALSE@  src/capnp/compiler/md5.h                                     \
+ @LITE_MODE_FALSE@  src/capnp/compiler/md5.c++                                   \
+@@ -3295,7 +3295,7 @@ maintainer-clean-local:
+ # user doesn't have root privileges), don't worry about it.
+ @LITE_MODE_FALSE@install-exec-hook:
+ @LITE_MODE_FALSE@	ln -sf capnp $(DESTDIR)$(bindir)/capnpc
+-@LITE_MODE_FALSE@	ldconfig < /dev/null > /dev/null 2>&1 || true
++#@LITE_MODE_FALSE@	ldconfig < /dev/null > /dev/null 2>&1 || true
+ 
+ @LITE_MODE_FALSE@uninstall-hook:
+ @LITE_MODE_FALSE@	rm -f $(DESTDIR)$(bindir)/capnpc

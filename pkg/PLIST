@@ -1,0 +1,90 @@
+@comment $OpenBSD$
+@bin bin/capnp
+bin/capnpc
+@bin bin/capnpc-c++
+@bin bin/capnpc-capnp
+include/capnp/
+include/capnp/any.h
+include/capnp/blob.h
+include/capnp/c++.capnp
+include/capnp/c++.capnp.h
+include/capnp/capability.h
+include/capnp/common.h
+include/capnp/dynamic.h
+include/capnp/endian.h
+include/capnp/ez-rpc.h
+include/capnp/generated-header-support.h
+include/capnp/layout.h
+include/capnp/list.h
+include/capnp/message.h
+include/capnp/orphan.h
+include/capnp/persistent.capnp
+include/capnp/persistent.capnp.h
+include/capnp/pointer-helpers.h
+include/capnp/pretty-print.h
+include/capnp/rpc-prelude.h
+include/capnp/rpc-twoparty.capnp
+include/capnp/rpc-twoparty.capnp.h
+include/capnp/rpc-twoparty.h
+include/capnp/rpc.capnp
+include/capnp/rpc.capnp.h
+include/capnp/rpc.h
+include/capnp/schema-lite.h
+include/capnp/schema-loader.h
+include/capnp/schema-parser.h
+include/capnp/schema.capnp
+include/capnp/schema.capnp.h
+include/capnp/schema.h
+include/capnp/serialize-async.h
+include/capnp/serialize-packed.h
+include/capnp/serialize.h
+include/kj/
+include/kj/arena.h
+include/kj/array.h
+include/kj/async-inl.h
+include/kj/async-io.h
+include/kj/async-prelude.h
+include/kj/async-unix.h
+include/kj/async.h
+include/kj/common.h
+include/kj/debug.h
+include/kj/exception.h
+include/kj/function.h
+include/kj/io.h
+include/kj/main.h
+include/kj/memory.h
+include/kj/miniposix.h
+include/kj/mutex.h
+include/kj/one-of.h
+include/kj/parse/
+include/kj/parse/char.h
+include/kj/parse/common.h
+include/kj/refcount.h
+include/kj/std/
+include/kj/std/iostream.h
+include/kj/string-tree.h
+include/kj/string.h
+include/kj/thread.h
+include/kj/threadlocal.h
+include/kj/time.h
+include/kj/tuple.h
+include/kj/units.h
+include/kj/vector.h
+include/kj/windows-sanity.h
+lib/libcapnp-rpc.a
+lib/libcapnp-rpc.la
+@lib lib/libcapnp-rpc.so.${LIBcapnp-rpc_VERSION}
+lib/libcapnp.a
+lib/libcapnp.la
+@lib lib/libcapnp.so.${LIBcapnp_VERSION}
+lib/libcapnpc.a
+lib/libcapnpc.la
+@lib lib/libcapnpc.so.${LIBcapnpc_VERSION}
+lib/libkj-async.a
+lib/libkj-async.la
+@lib lib/libkj-async.so.${LIBkj-async_VERSION}
+lib/libkj.a
+lib/libkj.la
+@lib lib/libkj.so.${LIBkj_VERSION}
+lib/pkgconfig/capnp-rpc.pc
+lib/pkgconfig/capnp.pc
